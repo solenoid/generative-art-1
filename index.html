@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>generative art</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <div id="root">
+      <div class="container"></div>
+    </div>
+    <script type="module">
+      import { idGenerator } from './utils.js'
+      import { draw } from './lines.js'
+      const container = document.querySelector('.container')
+      // TODO sliders / knobs for TBD etc.
+      const idsAndSeeds = []
+      let containerContents = ''
+      const width = 450
+      document.documentElement.style.setProperty('--art-width', `${width}px`)
+      const height = 750
+      const artPad = 50
+      const xJump = 4
+      const yJump = 4
+      const lineAttract = 4
+      const edgeAvoid = 80
+      for (let seed = 0; seed < 1; seed += 0.01) {
+        const id = idGenerator('art')
+        seed = Number(seed.toFixed(2))
+        idsAndSeeds.push([id, seed])
+        containerContents += `<div>
+          <div id="${id}"></div>
+          <table>
+            <tr><th>seed</th><td>${seed}</td></tr>
+            <tr><th>xJump</th><td>${xJump}</td></tr>
+            <tr><th>yJump</th><td>${yJump}</td></tr>
+            <tr><th>lineAttract</th><td>${lineAttract}</td></tr>
+            <tr><th>edgeAvoid</th><td>${edgeAvoid}</td></tr>
+          </table></div>`
+      }
+      container.innerHTML = containerContents
+      for (let i = 0; i < idsAndSeeds.length; i++) {
+        const [id, seed] = idsAndSeeds[i]
+        draw(
+          `#${id}`,
+          width,
+          height,
+          artPad,
+          xJump,
+          yJump,
+          lineAttract,
+          edgeAvoid,
+          seed,
+        )
+      }
+    </script>
+  </body>
+</html>

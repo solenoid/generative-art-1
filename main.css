@@ -1,0 +1,82 @@
+/*
+  Started from Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root {
+  isolation: isolate;
+}
+
+/* above is a modern "reset" */
+body {
+  background: #bbb;
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#root {
+  padding: 24px;
+}
+
+:root {
+  --art-width: 100px;
+}
+
+.container {
+  display: grid;
+  /* TODO see if this ever has a FOUC even if brief */
+  grid-template-columns: repeat(auto-fill, var(--art-width));
+  gap: 20px;
+}
+
+/* only table we have is to show art parameters */
+table {
+  border-spacing: 0;
+}
+td {
+  text-align: right;
+  border-bottom: solid 1px #666;
+}
+th {
+  font-weight: 400;
+  text-align: left;
+  color: #555;
+  border-bottom: solid 1px #666;
+}
