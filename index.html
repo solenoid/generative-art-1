@@ -25,7 +25,7 @@
       const yJump = 4
       const lineAttract = 4
       const edgeAvoid = 80
-      for (let seed = 0; seed < 1; seed += 0.01) {
+      for (let seed = 0.01; seed < 1; seed += 0.01) {
         const id = idGenerator('art')
         seed = Number(seed.toFixed(2))
         idsAndSeeds.push([id, seed])
