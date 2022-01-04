@@ -24,9 +24,9 @@ Maybe adding in something other than lines like dots or circles is another poten
 
 ### Build / Deploy / Formatting
 
-Just run a local webserver like `python3 -m http.server 1234` and go to:
+Just run a local webserver like `python3 -m http.server 1001` and go to:
 
-http://localhost:1234/
+http://localhost:1001/
 
 Hit refresh on the page after saving any file.
 
